@@ -8,13 +8,6 @@ export interface IEnvironmentVariable extends RecordType {
 
 export type RecordType = Record<string, any>;
 
-export enum ApplicationEnvironmentEnum {
-	DEVELOPMENT = 'development',
-	PRODUCTION = 'production',
-	STAGING = 'staging'
-}
-export type ApplicationEnvironmentType = `${ApplicationEnvironmentEnum}`;
-
 export interface IBaseApiResponse<TEntity = any> {
 	message: string;
 	data: TEntity;
