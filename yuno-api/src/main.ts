@@ -3,11 +3,11 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 
 import helmet from 'helmet';
 import * as morgan from "morgan";
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 import { AppModule } from './app.module';
 import { AllExceptionFilter, HttpExceptionFilter } from './filter';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
 	const app = await NestFactory.create<NestExpressApplication>(AppModule);
