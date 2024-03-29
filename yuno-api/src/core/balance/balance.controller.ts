@@ -1,34 +1,22 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
+import { Response } from 'express';
+
 import { BalanceService } from './balance.service';
-import { CreateBalanceDto } from './dto/create-balance.dto';
-import { UpdateBalanceDto } from './dto/update-balance.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('balance')
+@ApiTags('Balance')
 export class BalanceController {
-  constructor(private readonly balanceService: BalanceService) {}
+	constructor(
+		private readonly balanceService: BalanceService
+	) { }
 
-  @Post()
-  create(@Body() createBalanceDto: CreateBalanceDto) {
-    return this.balanceService.create(createBalanceDto);
-  }
+	@Get()
+	async getBalance(
+		@Res() res: Response
+	) {
+		const data = await this.balanceService.getBalance();
+		res.status(HttpStatus.OK).json({ data })
+	}
 
-  @Get()
-  findAll() {
-    return this.balanceService.findAll();
-  }
-
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.balanceService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBalanceDto: UpdateBalanceDto) {
-    return this.balanceService.update(+id, updateBalanceDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.balanceService.remove(+id);
-  }
 }

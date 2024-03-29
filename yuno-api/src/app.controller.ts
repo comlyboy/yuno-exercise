@@ -1,12 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
+import { Response } from 'express';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+	@Get('health')
+	getHealth(
+		@Res() res: Response
+	) {
+		const data = {
+			message: 'API working OKAY!!!',
+			environment: process.env.NODE_ENV || 'development',
+			serverTimestamp: new Date().toISOString()
+		};
+		return res.status(HttpStatus.OK).json({ data });
+	}
 }
