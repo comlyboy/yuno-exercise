@@ -3,7 +3,7 @@ import { IBaseApiError, IBaseApiResponse, RecordType } from "../types";
 
 
 /** Http post method */
-export async function post<TResponse, TBody extends RecordType = any>({
+export async function post<TResponse extends RecordType, TBody extends RecordType>({
 	path,
 	payload,
 	options,
@@ -17,7 +17,7 @@ export async function post<TResponse, TBody extends RecordType = any>({
 }
 
 /** Http get method */
-export async function get<TResponse>({ path, options }: {
+export async function get<TResponse extends RecordType>({ path, options }: {
 	path: string;
 	options?: AxiosRequestConfig;
 }) {
@@ -26,7 +26,7 @@ export async function get<TResponse>({ path, options }: {
 }
 
 /** Http patch method */
-export async function patch<TResponse, TBody extends RecordType = any>({
+export async function patch<TResponse extends RecordType, TBody extends RecordType = any>({
 	path,
 	payload,
 	options,
@@ -49,7 +49,7 @@ export async function delet({ path, options }: {
 }
 
 /** Http for all methods. By passes axios http interceptor by choice */
-export async function sendHttpRequest<TResponse, TBody extends RecordType = any>(
+export async function sendHttpRequest<TResponse extends RecordType, TBody extends RecordType = any>(
 	options: Omit<AxiosRequestConfig<TBody>, 'baseURL'> & {
 		/**
 		 * Set `true` to use defined axios interceptor
