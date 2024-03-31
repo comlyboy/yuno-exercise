@@ -1,3 +1,5 @@
+import { ITransaction } from ".";
+
 export interface IBaseId {
 	id: string;
 }
@@ -12,7 +14,7 @@ export interface IBaseApiResponse<TEntity extends RecordType = any> {
 	message: string;
 	data: TEntity;
 }
-export interface IBaseApiError { }
+export interface IBaseApiError extends RecordType { }
 
 export interface IAlert {
 	type?: AlertType;
@@ -30,8 +32,19 @@ export type AlertType = `${AlertTypeEnum}`;
 export interface IApplicationContext {
 	alert: {
 		sendAlert: (message: string, type?: any) => void;
-		sendErrorAlert: (error: Pick<any, "message">) => void;
+		sendErrorAlert: (error: Pick<IBaseApiError, "message">) => void;
 		removeAlert: () => void;
 		alert: IAlert | null;
 	};
+	transaction: {
+		transactions: ITransaction[];
+		addTransaction: () => void;
+		fetchTransactions: () => void;
+		isLoading: boolean;
+	},
+	balance: {
+		balance: number;
+		fetchBalance: () => void;
+		isLoading: boolean;
+	}
 }

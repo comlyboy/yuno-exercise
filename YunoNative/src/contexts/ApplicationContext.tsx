@@ -1,17 +1,53 @@
-import { createContext, useContext, useState } from "react";
-import { AlertTypeEnum, IAlert, IApplicationContext } from "../types";
+import { createContext, useState } from "react";
+import { AlertTypeEnum, IAlert, IApplicationContext, ITransaction } from "../types";
+import { balanceService, transactionService } from "../services";
 
-const AppContext = createContext<IApplicationContext>({
+export const AppContext = createContext<IApplicationContext>({
 	alert: {
 		sendAlert: () => { },
 		sendErrorAlert: () => { },
 		removeAlert: () => { },
 		alert: null,
 	},
+	transaction: {
+		transactions: [],
+		addTransaction: () => { },
+		fetchTransactions: () => { },
+		isLoading: false,
+	},
+	balance: {
+		balance: 0,
+		fetchBalance: () => { },
+		isLoading: false
+	}
 });
 
 export default function ApplicationContext({ children }: { children: JSX.Element }) {
 	const [alert, setAlert] = useState<IAlert | null>(null);
+	const [transactionIsLoading, setTransactionIsLoading] = useState(false);
+	const [balanceIsLoading, setBalanceIsLoading] = useState(false);
+	const [transactions, setTransactions] = useState<ITransaction[]>([]);
+	const [balance, setBalance] = useState(0);
+
+	function helpFetchTransactions() {
+		setTransactionIsLoading(true);
+		transactionService.getTransactions().then(transactions => {
+			setTransactionIsLoading(false);
+			setTransactions(transactions);
+		}).catch(error => {
+			setTransactionIsLoading(false);
+		});
+	}
+
+	function helpFetchBalance() {
+		setBalanceIsLoading(true);
+		balanceService.getBalance().then(balance => {
+			setBalanceIsLoading(false);
+			setBalance(balance);
+		}).catch(error => {
+			setBalanceIsLoading(false);
+		});
+	}
 
 	function helpSetAlerts(alert: IAlert): void {
 		alert.type = alert.type || AlertTypeEnum.SUCCESS;
@@ -24,17 +60,24 @@ export default function ApplicationContext({ children }: { children: JSX.Element
 			sendAlert: (message, type) => {
 				helpSetAlerts({ message, type });
 			},
-			sendErrorAlert: (error) => {
+			sendErrorAlert: error => {
 				const message = error.message || 'An error occured!';
 				helpSetAlerts({ message, type: AlertTypeEnum.ERROR });
 			},
 			removeAlert: () => setAlert(null),
+		},
+		transaction: {
+			transactions,
+			isLoading: transactionIsLoading,
+			addTransaction: () => { },
+			fetchTransactions: () => helpFetchTransactions()
+		},
+		balance: {
+			balance,
+			fetchBalance: () => helpFetchBalance(),
+			isLoading: balanceIsLoading
 		}
 	};
 
 	return <AppContext.Provider value={contextValues}>{children}</AppContext.Provider>;
-}
-
-export function useAlert() {
-	return useContext(AppContext).alert;
 }

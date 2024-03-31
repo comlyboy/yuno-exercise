@@ -77,7 +77,6 @@ export async function getFetchClient(url: string, options: RequestInit, useInter
 function getHttpClient() {
 	// cancel previous http request https://www.youtube.com/watch?v=cIwpavIhI84
 	const httpClient = axios.create({ baseURL: getBaseUrl() });
-
 	httpClient.interceptors.request.use(
 		config => {
 			// const token = localStorage.getItem("token");
@@ -121,17 +120,6 @@ function getHttpClient() {
 }
 
 function getBaseUrl(): string {
-	const stageUrl = ' ';
-	const productionUrl = ' ';
-	const environment = process.env.NODE_ENV;
-	switch (environment) {
-		case 'development':
-			return stageUrl;
-		case 'staging':
-			return stageUrl;
-		case 'production':
-			return productionUrl;
-		default:
-			return stageUrl;
-	}
+	const developmentUrl = 'http://localhost:3030/api/';
+	return developmentUrl;
 }
