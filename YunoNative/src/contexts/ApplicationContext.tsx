@@ -34,19 +34,15 @@ export default function ApplicationContext({ children }: { children: JSX.Element
 		transactionService.getTransactions().then(transactions => {
 			setTransactionIsLoading(false);
 			setTransactions(transactions);
-		}).catch(error => {
-			setTransactionIsLoading(false);
-		});
+		}).catch(error => setTransactionIsLoading(false));
 	}
 
 	function helpFetchBalance() {
 		setBalanceIsLoading(true);
 		balanceService.getBalance().then(balance => {
-			setBalanceIsLoading(false);
 			setBalance(balance);
-		}).catch(error => {
 			setBalanceIsLoading(false);
-		});
+		}).catch(error => setBalanceIsLoading(false));
 	}
 
 	function helpSetAlerts(alert: IAlert): void {
@@ -54,12 +50,10 @@ export default function ApplicationContext({ children }: { children: JSX.Element
 		setAlert(alert);
 	}
 
-	const contextValues: IApplicationContext = {
+	return <AppContext.Provider value={{
 		alert: {
 			alert,
-			sendAlert: (message, type) => {
-				helpSetAlerts({ message, type });
-			},
+			sendAlert: (message, type) => helpSetAlerts({ message, type }),
 			sendErrorAlert: error => {
 				const message = error.message || 'An error occured!';
 				helpSetAlerts({ message, type: AlertTypeEnum.ERROR });
@@ -77,7 +71,5 @@ export default function ApplicationContext({ children }: { children: JSX.Element
 			fetchBalance: () => helpFetchBalance(),
 			isLoading: balanceIsLoading
 		}
-	};
-
-	return <AppContext.Provider value={contextValues}>{children}</AppContext.Provider>;
+	}}>{children}</AppContext.Provider>;
 }

@@ -14,7 +14,13 @@ export interface IBaseApiResponse<TEntity extends RecordType = any> {
 	message: string;
 	data: TEntity;
 }
-export interface IBaseApiError extends RecordType { }
+export interface IBaseApiError {
+	statusCode: number;
+	message: string;
+	path: string;
+	method: string;
+	timestamp: string;
+}
 
 export interface IAlert {
 	type?: AlertType;

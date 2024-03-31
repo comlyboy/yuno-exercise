@@ -63,16 +63,16 @@ export async function sendHttpRequest<TResponse extends RecordType, TBody extend
 	return response.data as IBaseApiResponse<TResponse>;
 }
 
-export async function getFetchClient(url: string, options: RequestInit, useInterception = true) {
-	if (useInterception) {
-		options.headers = {
-			...options.headers,
-			Authorization: `Bearer `
-		}
-	}
-	options.body = options.body ? JSON.stringify(options.body) : undefined;
-	return await fetch(getBaseUrl() + url, options).then(res => res.json());
-}
+// export async function getFetchClient(url: string, options: RequestInit, useInterception = true) {
+// 	if (useInterception) {
+// 		options.headers = {
+// 			...options.headers,
+// 			Authorization: `Bearer `
+// 		}
+// 	}
+// 	options.body = options.body ? JSON.stringify(options.body) : undefined;
+// 	return await fetch(getBaseUrl() + url, options).then(res => res.json());
+// }
 
 function getHttpClient() {
 	// cancel previous http request https://www.youtube.com/watch?v=cIwpavIhI84
