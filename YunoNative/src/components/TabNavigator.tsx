@@ -11,9 +11,8 @@ interface ITabNavProps extends DefaultRouterOptions {
 export default function TabNavigator({ initialRouteName, components }: ITabNavProps) {
 	const Tab = createBottomTabNavigator();
 	return <>
-		{components.length > 0 && < Tab.Navigator initialRouteName={initialRouteName}>
-			{components.map(component => <Tab.Screen name={component.name} component={component.component} />)}
-		</Tab.Navigator >}
+		{components.length > 0 && <Tab.Navigator initialRouteName={initialRouteName}>
+			{components.map(component => <Tab.Screen key={Math.random()} name={component.name} component={component.component} />)}
+		</Tab.Navigator>}
 	</>
-
 }
