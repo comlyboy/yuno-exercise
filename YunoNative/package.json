@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android --verbose",
-    "ios": "react-native run-ios",
-    "lint": "eslint .",
+    "ios": "react-native run-ios --verbose",
     "start": "react-native start",
+    "lint": "eslint .",
     "test": "jest"
   },
   "dependencies": {
