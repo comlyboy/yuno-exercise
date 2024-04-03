@@ -1,2 +1,2 @@
-export * as authService from "./auth.service";
-export * as userService from "./user.service";
+export * as balanceService from "./balance.service";
+export * as transactionService from "./transaction.service";

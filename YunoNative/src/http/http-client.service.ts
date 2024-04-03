@@ -3,7 +3,7 @@ import { IBaseApiError, IBaseApiResponse, RecordType } from "../types";
 
 
 /** Http post method */
-export async function post<TResponse, TBody extends RecordType = any>({
+export async function post<TResponse extends RecordType, TBody extends RecordType>({
 	path,
 	payload,
 	options,
@@ -17,7 +17,7 @@ export async function post<TResponse, TBody extends RecordType = any>({
 }
 
 /** Http get method */
-export async function get<TResponse>({ path, options }: {
+export async function get<TResponse extends RecordType>({ path, options }: {
 	path: string;
 	options?: AxiosRequestConfig;
 }) {
@@ -26,7 +26,7 @@ export async function get<TResponse>({ path, options }: {
 }
 
 /** Http patch method */
-export async function patch<TResponse, TBody extends RecordType = any>({
+export async function patch<TResponse extends RecordType, TBody extends RecordType = any>({
 	path,
 	payload,
 	options,
@@ -49,7 +49,7 @@ export async function delet({ path, options }: {
 }
 
 /** Http for all methods. By passes axios http interceptor by choice */
-export async function sendHttpRequest<TResponse, TBody extends RecordType = any>(
+export async function sendHttpRequest<TResponse extends RecordType, TBody extends RecordType = any>(
 	options: Omit<AxiosRequestConfig<TBody>, 'baseURL'> & {
 		/**
 		 * Set `true` to use defined axios interceptor
@@ -63,21 +63,20 @@ export async function sendHttpRequest<TResponse, TBody extends RecordType = any>
 	return response.data as IBaseApiResponse<TResponse>;
 }
 
-export async function getFetchClient(url: string, options: RequestInit, useInterception = true) {
-	if (useInterception) {
-		options.headers = {
-			...options.headers,
-			Authorization: `Bearer `
-		}
-	}
-	options.body = options.body ? JSON.stringify(options.body) : undefined;
-	return await fetch(getBaseUrl() + url, options).then(res => res.json());
-}
+// export async function getFetchClient(url: string, options: RequestInit, useInterception = true) {
+// 	if (useInterception) {
+// 		options.headers = {
+// 			...options.headers,
+// 			Authorization: `Bearer `
+// 		}
+// 	}
+// 	options.body = options.body ? JSON.stringify(options.body) : undefined;
+// 	return await fetch(getBaseUrl() + url, options).then(res => res.json());
+// }
 
 function getHttpClient() {
 	// cancel previous http request https://www.youtube.com/watch?v=cIwpavIhI84
 	const httpClient = axios.create({ baseURL: getBaseUrl() });
-
 	httpClient.interceptors.request.use(
 		config => {
 			// const token = localStorage.getItem("token");
@@ -121,17 +120,6 @@ function getHttpClient() {
 }
 
 function getBaseUrl(): string {
-	const stageUrl = ' ';
-	const productionUrl = ' ';
-	const environment = process.env.NODE_ENV;
-	switch (environment) {
-		case 'development':
-			return stageUrl;
-		case 'staging':
-			return stageUrl;
-		case 'production':
-			return productionUrl;
-		default:
-			return stageUrl;
-	}
+	const developmentUrl = 'http://localhost:3030/api/';
+	return developmentUrl;
 }
