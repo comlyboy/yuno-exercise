@@ -5,11 +5,9 @@ import TransactionCard from '../components/TransactionCard';
 import { useTransaction } from '../hooks';
 
 export default function Transactions() {
-	const { isLoading, transactions, fetchTransactions } = useTransaction();
+	const { transactions, fetchTransactions } = useTransaction();
 
 	useEffect(() => { fetchTransactions(); }, [])
-
-	console.log(isLoading);
 
 	return <SafeAreaView>
 		{transactions.map(transaction => <TransactionCard transaction={transaction} onTap={() => { }} />)}

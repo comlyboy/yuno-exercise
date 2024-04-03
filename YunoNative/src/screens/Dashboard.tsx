@@ -1,10 +1,16 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { Text, SafeAreaView } from 'react-native'
+import { useBalance } from '../hooks';
+import { useEffect } from 'react';
 
 export default function Dashboard() {
-	return (
-		<View>
-			<Text>Dashboard</Text>
-		</View>
-	)
+	const { balance, fetchBalance } = useBalance();
+
+	useEffect(() => {
+		fetchBalance();
+	}, [])
+
+	return <SafeAreaView>
+		<Text>{balance}</Text>
+	</SafeAreaView>
+
 }
