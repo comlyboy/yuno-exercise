@@ -44,7 +44,7 @@ export interface IApplicationContext {
 	};
 	transaction: {
 		transactions: ITransaction[];
-		addTransaction: () => void;
+		// addTransaction: (transactionDto:) => void;
 		fetchTransactions: () => void;
 		isLoading: boolean;
 	},

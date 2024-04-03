@@ -11,7 +11,7 @@ export const AppContext = createContext<IApplicationContext>({
 	},
 	transaction: {
 		transactions: [],
-		addTransaction: () => { },
+		// addTransaction: () => { },
 		fetchTransactions: () => { },
 		isLoading: false,
 	},
@@ -62,9 +62,9 @@ export default function ApplicationContext({ children }: { children: JSX.Element
 		},
 		transaction: {
 			transactions,
+			// addTransaction: () => { },
+			fetchTransactions: () => helpFetchTransactions(),
 			isLoading: transactionIsLoading,
-			addTransaction: () => { },
-			fetchTransactions: () => helpFetchTransactions()
 		},
 		balance: {
 			balance,
