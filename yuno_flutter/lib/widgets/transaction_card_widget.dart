@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../models/transaction_model.dart';
 
@@ -9,10 +10,6 @@ class TransactionCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16.0),
-      color: Colors.blue,
-      // child:
-    );
+    return Container(padding: const EdgeInsets.all(16.0));
   }
 }

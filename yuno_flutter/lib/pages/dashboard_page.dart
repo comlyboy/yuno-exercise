@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TransactionsView extends StatefulWidget {
-  const TransactionsView({super.key});
+class DashboardPage extends StatefulWidget {
+  const DashboardPage({super.key});
 
   @override
-  State<TransactionsView> createState() => _TransactionsViewState();
+  State<DashboardPage> createState() => _DashboardPageState();
 }
 
-class _TransactionsViewState extends State<TransactionsView> {
+class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

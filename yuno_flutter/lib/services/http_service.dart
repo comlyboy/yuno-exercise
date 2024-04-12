@@ -1,13 +1,10 @@
-import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 
 import 'package:yuno_flutter/utils/constant.dart';
 
 class HttpService {
-  static Future post(String endpoint, dynamic body) async {
-    http.Response response = await http.post(_parseUrl(endpoint), body: body);
-    return jsonDecode(response.body);
+  static Future<http.Response> post(String endpoint, dynamic body) async {
+    return await http.post(_parseUrl(endpoint), body: body);
   }
 
   static Future<http.Response> get(String endpoint) async {
