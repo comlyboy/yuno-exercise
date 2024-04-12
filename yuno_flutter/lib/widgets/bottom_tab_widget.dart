@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:yuno_flutter/models/tab_model.dart';
+
 import 'package:yuno_flutter/pages/dashboard_page.dart';
 import 'package:yuno_flutter/pages/transations_page.dart';
 
 class BottomTabWidget extends StatefulWidget {
-  const BottomTabWidget({super.key});
+  final List<BottomTabModel> tabs;
+  const BottomTabWidget({super.key, required this.tabs});
 
   @override
   State<BottomTabWidget> createState() => _BottomTabWidgetState();
@@ -35,7 +38,8 @@ class _BottomTabWidgetState extends State<BottomTabWidget> {
       body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Dashboard'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.dashboard), label: 'Dashboard'),
           BottomNavigationBarItem(
               icon: Icon(Icons.business), label: 'Transactions')
         ],

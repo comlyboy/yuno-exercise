@@ -11,18 +11,15 @@ class _TransactionsPageState extends State<TransactionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Transactions',
-            style: TextStyle(fontSize: 16),
-          ),
-          
-          // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      appBar: AppBar(
+        title: const Text(
+          'Transactions',
+          style: TextStyle(fontSize: 16),
         ),
-        body: const Column(
-          children: [
-            Text('Lorem'),
-          ],
-        ));
+      ),
+      body: const Column(
+        children: [Text('Lorem')],
+      ),
+    );
   }
 }

@@ -11,6 +11,6 @@ class AppView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: BottomTabWidget());
+    return const MaterialApp(home: BottomTabWidget(tabs: []));
   }
 }
