@@ -2,3 +2,4 @@ svgFlutter https://youtu.be/D4nhaszNW4o
 flutter beginner https://youtu.be/U7z5IeWuaLI
 API calls https://youtu.be/ExPFnu8Dm40?list=PLXbYsh3rUPSzuLcZsIkpDmftSQbFmUq9x
 bottom bar https://www.youtube.com/watch?v=qdO1hwg2HY8
+flutter basic https://www.youtube.com/watch?v=D4nhaszNW4o

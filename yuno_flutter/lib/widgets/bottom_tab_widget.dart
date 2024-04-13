@@ -3,6 +3,8 @@ import 'package:yuno_flutter/models/tab_model.dart';
 
 import 'package:yuno_flutter/pages/dashboard_page.dart';
 import 'package:yuno_flutter/pages/transations_page.dart';
+import 'package:yuno_flutter/utils/constant.dart';
+import 'package:yuno_flutter/utils/svg_icon.dart';
 
 class BottomTabWidget extends StatefulWidget {
   final List<BottomTabModel> tabs;
@@ -14,16 +16,13 @@ class BottomTabWidget extends StatefulWidget {
 
 class _BottomTabWidgetState extends State<BottomTabWidget> {
   int _selectedIndex = 0;
-  // static const TextStyle optionStyle = TextStyle(
-  //   fontSize: 30,
-  //   fontWeight: FontWeight.bold,
-  // );
-  static const List<Widget> _widgetOptions = [
+
+  static const List<Widget> _childWidgets = [
     DashboardPage(),
     TransactionsPage(),
-    // Text('Index 0: Dashboard', style: optionStyle),
-    // Text('Index 1: Transactions', style: optionStyle),
-    // Text('Index 2: Report', style: optionStyle),
+    TransactionsPage(),
+    TransactionsPage(),
+    TransactionsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -35,17 +34,47 @@ class _BottomTabWidgetState extends State<BottomTabWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
+      body: Center(child: _childWidgets.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard), label: 'Dashboard'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.business), label: 'Transactions')
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        iconSize: 20,
+        selectedFontSize: 12,
         onTap: _onItemTapped,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed ,
+        currentIndex: _selectedIndex,
+        enableFeedback: false,
+        fixedColor: YunoConstant.muteColor,
+        unselectedItemColor: YunoConstant.muteColor,
+        selectedLabelStyle: const TextStyle(
+          color: YunoConstant.muteColor,
+          fontWeight: FontWeight.w400,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          color: YunoConstant.muteColor,
+          fontWeight: FontWeight.w400,
+        ),
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: YunoSvgIcons.home(),
+              activeIcon: YunoSvgIcons.home(color: YunoConstant.primaryYellow),
+              label: 'Home'),
+          BottomNavigationBarItem(
+              icon: YunoSvgIcons.send(),
+              activeIcon: YunoSvgIcons.send(color: YunoConstant.primaryYellow),
+              label: 'Send'),
+          BottomNavigationBarItem(
+              icon: YunoSvgIcons.creditCard(),
+              activeIcon: YunoSvgIcons.creditCard(color: YunoConstant.primaryYellow),
+              label: 'Cards'),
+          BottomNavigationBarItem(
+              icon: YunoSvgIcons.wallet(),
+              activeIcon: YunoSvgIcons.wallet(color: YunoConstant.primaryYellow),
+              label: 'Pay'),
+          BottomNavigationBarItem(
+              icon: YunoSvgIcons.menu(),
+              activeIcon: YunoSvgIcons.menu(color: YunoConstant.primaryYellow),
+              label: 'More'),
+        ],
       ),
     );
   }

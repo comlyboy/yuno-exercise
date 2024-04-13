@@ -4,6 +4,7 @@ class BottomTabModel {
   final String id;
   final String name;
   final Widget icon;
+  final Widget activeIcon;
   final dynamic component;
 
   const BottomTabModel({
@@ -11,6 +12,7 @@ class BottomTabModel {
     required this.name,
     required this.icon,
     required this.component,
+    required this.activeIcon,
   });
 
 }
