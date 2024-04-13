@@ -12,14 +12,18 @@ class _TransactionsPageState extends State<TransactionsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Transactions',
-          style: TextStyle(fontSize: 16),
-        ),
+        title: const Text('Transactions', style: TextStyle(fontSize: 16))
       ),
-      body: const Column(
-        children: [Text('Lorem')],
-      ),
+      body: const Center(
+          // child: ListView.builder(
+          //   itemCount: items.length,
+          //   itemBuilder: (context, index) {
+          //     return ListTile(
+          //       title: Text('${items[index]}'),
+          //     );
+          //   },
+          // ),
+          ),
     );
   }
 }

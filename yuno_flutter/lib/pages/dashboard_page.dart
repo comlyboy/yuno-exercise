@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yuno_flutter/utils/constant.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -10,11 +11,62 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.lightBlue,
-      body: Padding(
-        padding: EdgeInsets.all(10),
-        child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+    return Scaffold(
+      backgroundColor: YunoConstant.primaryNavyBlue,
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            child: const Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(child: Text('CO')),
+                        SizedBox(width: 10),
+                        Column(
+                          children: [
+                            Text(
+                              'Hi Cornelius',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14),
+                            ),
+                            Text(
+                              '20.05.2024',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 10),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('AA', style: TextStyle(color: Colors.white)),
+                        Text('BB', style: TextStyle(color: Colors.white)),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          // Container(
+          //   color: const Color.fromARGB(255, 255, 255, 255),
+          //   child: const SizedBox(
+          //     child:  Column(
+          //       children: [Row()],
+          //     ),
+          //   ),
+          // ),
+        ],
       ),
     );
   }

@@ -11,12 +11,12 @@ class TransactionModel {
     required this.description,
   });
 
-  factory TransactionModel.fromJson(Map<String, dynamic> json) =>
+  factory TransactionModel.fromJson(Map<String, dynamic> jsonData) =>
       TransactionModel(
-        id: json['id'],
-        date: json['date'],
-        amount: json['amount'],
-        description: json['description'],
+        id: jsonData['id'],
+        date: jsonData['date'],
+        amount: jsonData['amount'],
+        description: jsonData['description'],
       );
 }
 
