@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:yuno_flutter/models/tab_model.dart';
 
+import 'package:yuno_flutter/models/tab_model.dart';
 import 'package:yuno_flutter/pages/dashboard_page.dart';
 import 'package:yuno_flutter/pages/transations_page.dart';
 import 'package:yuno_flutter/utils/constant.dart';
@@ -20,9 +20,6 @@ class _BottomTabWidgetState extends State<BottomTabWidget> {
   static const List<Widget> _childWidgets = [
     DashboardPage(),
     TransactionsPage(),
-    TransactionsPage(),
-    TransactionsPage(),
-    TransactionsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -40,7 +37,7 @@ class _BottomTabWidgetState extends State<BottomTabWidget> {
         selectedFontSize: 12,
         onTap: _onItemTapped,
         showUnselectedLabels: true,
-        type: BottomNavigationBarType.fixed ,
+        type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         enableFeedback: false,
         fixedColor: YunoConstant.muteColor,
@@ -58,22 +55,26 @@ class _BottomTabWidgetState extends State<BottomTabWidget> {
               icon: YunoSvgIcons.home(),
               activeIcon: YunoSvgIcons.home(color: YunoConstant.primaryYellow),
               label: 'Home'),
-          BottomNavigationBarItem(
-              icon: YunoSvgIcons.send(),
-              activeIcon: YunoSvgIcons.send(color: YunoConstant.primaryYellow),
-              label: 'Send'),
-          BottomNavigationBarItem(
-              icon: YunoSvgIcons.creditCard(),
-              activeIcon: YunoSvgIcons.creditCard(color: YunoConstant.primaryYellow),
-              label: 'Cards'),
+          // BottomNavigationBarItem(
+          //     icon: YunoSvgIcons.send(),
+          //     activeIcon: YunoSvgIcons.send(color: YunoConstant.primaryYellow),
+          //     label: 'Send'),
+          //   BottomNavigationBarItem(
+          //       icon: YunoSvgIcons.creditCard(),
+          //       activeIcon: YunoSvgIcons.creditCard(color: YunoConstant.primaryYellow),
+          //       label: 'Cards'),
+          //   BottomNavigationBarItem(
+          //       icon: YunoSvgIcons.wallet(),
+          //       activeIcon: YunoSvgIcons.wallet(color: YunoConstant.primaryYellow),
+          //       label: 'Pay'),
+          //   BottomNavigationBarItem(
+          //       icon: YunoSvgIcons.menu(),
+          //       activeIcon: YunoSvgIcons.menu(color: YunoConstant.primaryYellow),
+          //       label: 'More'),
           BottomNavigationBarItem(
               icon: YunoSvgIcons.wallet(),
               activeIcon: YunoSvgIcons.wallet(color: YunoConstant.primaryYellow),
-              label: 'Pay'),
-          BottomNavigationBarItem(
-              icon: YunoSvgIcons.menu(),
-              activeIcon: YunoSvgIcons.menu(color: YunoConstant.primaryYellow),
-              label: 'More'),
+              label: 'Transactions'),
         ],
       ),
     );
