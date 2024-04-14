@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yuno_flutter/helpers/custom_widget_helper.dart';
 
 class TransactionsPage extends StatefulWidget {
   const TransactionsPage({super.key});
@@ -11,9 +12,7 @@ class _TransactionsPageState extends State<TransactionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Transactions', style: TextStyle(fontSize: 16))
-      ),
+      appBar: CustomWidgetHelper.appBar('Transactions'),
       body: const Center(
           // child: ListView.builder(
           //   itemCount: items.length,

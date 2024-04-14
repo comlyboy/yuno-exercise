@@ -33,17 +33,18 @@ class _BottomTabWidgetState extends State<BottomTabWidget> {
     return Scaffold(
       body: Center(child: _childWidgets.elementAt(_selectedIndex)),
       bottomNavigationBar: BottomNavigationBar(
-        iconSize: 20,
-        selectedFontSize: 12,
+        iconSize: 24,
+        selectedFontSize: 13,
+        unselectedFontSize: 13,
         onTap: _onItemTapped,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         enableFeedback: false,
-        fixedColor: YunoConstant.muteColor,
+        fixedColor: YunoConstant.textColor,
         unselectedItemColor: YunoConstant.muteColor,
         selectedLabelStyle: const TextStyle(
-          color: YunoConstant.muteColor,
+          color: YunoConstant.textColor,
           fontWeight: FontWeight.w400,
         ),
         unselectedLabelStyle: const TextStyle(
