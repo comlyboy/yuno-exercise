@@ -8,30 +8,35 @@ export enum ResponseMessageEnum {
 export const transactionList: ITransaction[] = [
 	{
 		id: '1611709645221',
+		type:'debit',
 		amount: 86756,
 		date: '2024-03-29T10:53:09.141Z',
 		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
 	},
 	{
 		id: '1311709589141',
+		type: 'debit',
 		date: '2024-03-29T10:55:04.184Z',
 		amount: 4300,
 		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
 	},
 	{
 		id: '1851705839295',
+		type: 'credit',
 		date: '2024-03-29T10:55:56.285Z',
 		amount: 5493,
 		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
 	},
 	{
 		id: '2011705839295',
+		type: 'credit',
 		date: '2024-03-29T10:55:56.285Z',
 		amount: 80000,
 		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
 	},
 	{
 		id: '2301705839295',
+		type: 'debit',
 		date: '2024-03-29T10:55:56.285Z',
 		amount: 48753,
 		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
