@@ -16,8 +16,11 @@ export class TransactionController {
 	async getTransactions(
 		@Res() res: Response
 	) {
-		const data = await this.transactionService.getTransactions();
-		res.status(HttpStatus.OK).json({ data });
+		setTimeout(async () => {
+			// used settimout here so that load indicator can be visible on local
+			const data = await this.transactionService.getTransactions();
+			res.status(HttpStatus.OK).json({ data });
+		}, 4000);
 	}
 
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:yuno_flutter/helpers/custom_widget_helper.dart';
 import 'package:yuno_flutter/models/transaction_model.dart';
 import 'package:yuno_flutter/services/transaction_service.dart';
-import 'package:yuno_flutter/utils/constant.dart';
 import 'package:yuno_flutter/widgets/transaction_card_widget.dart';
 
 class TransactionsPage extends StatefulWidget {
@@ -13,36 +12,41 @@ class TransactionsPage extends StatefulWidget {
 }
 
 class _TransactionsPageState extends State<TransactionsPage> {
-  List<TransactionModel> _transactions = [];
-
   @override
   void initState() {
     super.initState();
-    helpFetchTransation(); // Call the method to fetch data when the component is mounted
+    helpFetchTransaction(); // Call the method to fetch data when the component is mounted
   }
 
-
-  Future<void> helpFetchTransation() async {
-    final transactions = await TransactionService.getTransactions();
-    setState(() {
-      _transactions = transactions;
-    });
+  Future<List<TransactionModel>> helpFetchTransaction() async {
+    return await TransactionService.getTransactions();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: YunoConstant.backgroundColor,
+      backgroundColor: const Color.fromRGBO(231, 231, 231, 1),
       appBar: YunoWidgetHelper.appBar('Transactions'),
-      body: ListView.builder(
-          itemCount: _transactions.length,
-          itemBuilder: (context, index) {
-            return TransactionCardWidget(transaction: _transactions[index]);
-          }),
+      body: FutureBuilder<List<TransactionModel>>(
+        initialData: const [],
+        builder: (context, snapshot) {
+          final transaction = snapshot.data ?? [];
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return YunoWidgetHelper.spinner();
+          }
+          if (snapshot.connectionState == ConnectionState.none &&
+              !snapshot.hasData) {
+            return Container();
+          }
+          return ListView.builder(
+            itemCount: transaction.length,
+            itemBuilder: (context, index) {
+              return TransactionCardWidget(transaction: transaction[index]);
+            },
+          );
+        },
+        future: helpFetchTransaction(),
+      ),
     );
   }
-
-
 }

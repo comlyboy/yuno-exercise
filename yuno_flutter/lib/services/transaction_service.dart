@@ -18,8 +18,8 @@ class TransactionService {
     if (response.statusCode > 399) {
       throw Exception('An error occured!');
     }
-    final transactionlist = YunoUtilities.decodeJson(response.body)['data']
-        ['transactions'] as List<dynamic>;
+    final List<dynamic> transactionlist =
+        YunoUtilities.decodeJson(response.body)['data']['transactions'];
     return transactionlist
         .map((transaction) => TransactionModel.fromJson(transaction))
         .toList();

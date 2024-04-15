@@ -29,7 +29,7 @@ class TransactionCardWidget extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            const SizedBox(width: 10),
+            const SizedBox(width: 14),
             Text(YunoUtilities.formatCurrency(transaction.amount)),
           ],
         ),
