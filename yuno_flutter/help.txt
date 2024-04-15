@@ -4,3 +4,4 @@ API calls https://youtu.be/ExPFnu8Dm40?list=PLXbYsh3rUPSzuLcZsIkpDmftSQbFmUq9x
 bottom bar https://www.youtube.com/watch?v=qdO1hwg2HY8
 flutter basic https://www.youtube.com/watch?v=D4nhaszNW4o great design
 http flutter https://www.youtube.com/watch?v=ExPFnu8Dm40&list=PLXbYsh3rUPSzuLcZsIkpDmftSQbFmUq9x&index=1
+blog on flutter design https://www.dhiwise.com/post/flutter-row-overflow-causes-scenarios-and-solutions#:~:text=Using%20Wrap%20Widget,widget%20that%20supports%20line%20breaks.

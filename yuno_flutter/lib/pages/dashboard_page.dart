@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yuno_flutter/services/transaction_service.dart';
 import 'package:yuno_flutter/utils/constant.dart';
+import 'package:yuno_flutter/utils/utility.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -9,6 +11,21 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  double _balance = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    helpFetchStats(); // Call the method to fetch data when the component is mounted
+  }
+
+  Future<void> helpFetchStats() async {
+    final balance = await TransactionService.getbalance();
+    setState(() {
+      _balance = balance.balance;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +34,7 @@ class _DashboardPageState extends State<DashboardPage> {
         children: [
           Container(
             padding: const EdgeInsets.all(20),
-            child: Column(
+            child:  Column(
               children: [
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,12 +81,12 @@ class _DashboardPageState extends State<DashboardPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(
+                    Row(
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'You balance:',
                               style: TextStyle(
                                 color: Colors.white,
@@ -78,13 +95,13 @@ class _DashboardPageState extends State<DashboardPage> {
                               ),
                             ),
                             Text(
-                              'N34,950',
-                              style: TextStyle(
+                              YunoUtilities.formatCurrency(_balance),
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                               ),
                             ),
-                            Text(
+                            const Text(
                               'Hi Cornelius',
                               style: TextStyle(
                                 color: Color.fromRGBO(230, 237, 255, 0.7),
@@ -96,15 +113,13 @@ class _DashboardPageState extends State<DashboardPage> {
                         ),
                       ],
                     ),
-                    Container(
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('AA', style: TextStyle(color: Colors.white)),
-                          SizedBox(width: 10),
-                          Text('BB', style: TextStyle(color: Colors.white)),
-                        ],
-                      ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('AA', style: TextStyle(color: Colors.white)),
+                        SizedBox(width: 10),
+                        Text('BB', style: TextStyle(color: Colors.white)),
+                      ],
                     ),
                   ],
                 ),

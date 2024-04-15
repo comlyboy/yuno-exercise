@@ -14,8 +14,8 @@ class TransactionModel {
   factory TransactionModel.fromJson(Map<String, dynamic> jsonData) =>
       TransactionModel(
         id: jsonData['id'],
-        date: jsonData['date'],
-        amount: jsonData['amount'],
+        date: DateTime.parse(jsonData['date']),
+        amount: jsonData['amount'].toDouble(),
         description: jsonData['description'],
       );
 }
@@ -24,6 +24,6 @@ class BalanceModel {
   final double balance;
   BalanceModel({required this.balance});
   factory BalanceModel.fromJson(Map<String, dynamic> json) => BalanceModel(
-        balance: json['balance'],
+        balance: json['balance'].toDouble(),
       );
 }

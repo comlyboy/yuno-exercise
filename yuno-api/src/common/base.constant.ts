@@ -8,37 +8,32 @@ export enum ResponseMessageEnum {
 export const transactionList: ITransaction[] = [
 	{
 		id: '1611709645221',
-		type:'debit',
 		amount: 86756,
-		date: '2024-03-29T10:53:09.141Z',
-		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
+		date: '2024-01-03T10:53:09.141Z',
+		description: '0000153974853397137126216 VAT ON NIP TRANSFER FOR 000012345678945323124245664 TO Cornelius Okeke ReF:58376467395545467895344'
 	},
 	{
 		id: '1311709589141',
-		type: 'debit',
-		date: '2024-03-29T10:55:04.184Z',
+		date: '2024-04-09T10:55:04.184Z',
 		amount: 4300,
-		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
+		description: '0000153974853397137126216 VAT ON NIP TRANSFER FOR 000012345678945323124245664 TO Cornelius Okeke ReF:58376467395545467895344'
 	},
 	{
 		id: '1851705839295',
-		type: 'credit',
-		date: '2024-03-29T10:55:56.285Z',
+		date: '2023-08-29T10:55:56.285Z',
 		amount: 5493,
-		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
+		description: '0000153974853397137126216 VAT ON NIP TRANSFER FOR 000012345678945323124245664 TO Cornelius Okeke ReF:58376467395545467895344'
 	},
 	{
 		id: '2011705839295',
-		type: 'credit',
 		date: '2024-03-29T10:55:56.285Z',
 		amount: 80000,
-		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
+		description: '0000153974853397137126216 VAT ON NIP TRANSFER FOR 000012345678945323124245664 TO Cornelius Okeke ReF:58376467395545467895344'
 	},
 	{
 		id: '2301705839295',
-		type: 'debit',
-		date: '2024-03-29T10:55:56.285Z',
+		date: '2024-10-13T10:55:56.285Z',
 		amount: 48753,
-		description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, ab! Pariatur quo, alias deserunt dolorem tempora corporis porro adipisci fuga suscipit eum dolores ad tenetur soluta culpa dolore voluptas inventore!'
+		description: '0000153974853397137126216 VAT ON NIP TRANSFER FOR 000012345678945323124245664 TO Cornelius Okeke ReF:58376467395545467895344'
 	},
 ];

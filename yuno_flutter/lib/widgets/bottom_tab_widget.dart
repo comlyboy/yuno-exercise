@@ -54,27 +54,27 @@ class _BottomTabWidgetState extends State<BottomTabWidget> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: YunoSvgIcons.home(),
-              activeIcon: YunoSvgIcons.home(color: YunoConstant.primaryYellow),
+              activeIcon: YunoSvgIcons.home(YunoConstant.primaryYellow),
               label: 'Home'),
           // BottomNavigationBarItem(
           //     icon: YunoSvgIcons.send(),
-          //     activeIcon: YunoSvgIcons.send(color: YunoConstant.primaryYellow),
+          //     activeIcon: YunoSvgIcons.send(\YunoCnstant.primaryYellow),
           //     label: 'Send'),
           //   BottomNavigationBarItem(
           //       icon: YunoSvgIcons.creditCard(),
-          //       activeIcon: YunoSvgIcons.creditCard(color: YunoConstant.primaryYellow),
+          //       activeIcon: YunoSvgIcons.creditCard( YunoConstant.primaryYellow),
           //       label: 'Cards'),
           //   BottomNavigationBarItem(
           //       icon: YunoSvgIcons.wallet(),
-          //       activeIcon: YunoSvgIcons.wallet(color: YunoConstant.primaryYellow),
+          //       activeIcon: YunoSvgIcons.wallet(YunoConstant.primaryYellow),
           //       label: 'Pay'),
           //   BottomNavigationBarItem(
           //       icon: YunoSvgIcons.menu(),
-          //       activeIcon: YunoSvgIcons.menu(color: YunoConstant.primaryYellow),
+          //       activeIcon: YunoSvgIcons.menu(YunoConstant.primaryYellow),
           //       label: 'More'),
           BottomNavigationBarItem(
               icon: YunoSvgIcons.wallet(),
-              activeIcon: YunoSvgIcons.wallet(color: YunoConstant.primaryYellow),
+              activeIcon: YunoSvgIcons.wallet(YunoConstant.primaryYellow),
               label: 'Transactions'),
         ],
       ),
