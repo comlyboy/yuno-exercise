@@ -4,14 +4,14 @@ import 'package:yuno_flutter/models/transaction_model.dart';
 import 'package:yuno_flutter/services/transaction_service.dart';
 import 'package:yuno_flutter/widgets/transaction_card_widget.dart';
 
-class TransactionsPage extends StatefulWidget {
-  const TransactionsPage({super.key});
+class TransactionsScreen extends StatefulWidget {
+  const TransactionsScreen({super.key});
 
   @override
-  State<TransactionsPage> createState() => _TransactionsPageState();
+  State<TransactionsScreen> createState() => _TransactionsScreenState();
 }
 
-class _TransactionsPageState extends State<TransactionsPage> {
+class _TransactionsScreenState extends State<TransactionsScreen> {
   @override
   void initState() {
     super.initState();

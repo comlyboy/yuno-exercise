@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:yuno_flutter/models/tab_model.dart';
-import 'package:yuno_flutter/pages/dashboard_page.dart';
-import 'package:yuno_flutter/pages/transations_page.dart';
+import 'package:yuno_flutter/screens/dashboard_screen.dart';
+import 'package:yuno_flutter/screens/transations_screen.dart';
 import 'package:yuno_flutter/utils/constant.dart';
 import 'package:yuno_flutter/utils/svg_icon.dart';
 
@@ -18,8 +18,8 @@ class _BottomTabWidgetState extends State<BottomTabWidget> {
   int _selectedIndex = 0;
 
   static const List<Widget> _childWidgets = [
-    DashboardPage(),
-    TransactionsPage(),
+    DashboardScreen(),
+    TransactionsScreen(),
   ];
 
   void _onItemTapped(int index) {

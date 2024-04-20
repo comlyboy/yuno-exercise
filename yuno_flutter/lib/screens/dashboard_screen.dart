@@ -3,14 +3,14 @@ import 'package:yuno_flutter/services/transaction_service.dart';
 import 'package:yuno_flutter/utils/constant.dart';
 import 'package:yuno_flutter/utils/utility.dart';
 
-class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
 
   @override
-  State<DashboardPage> createState() => _DashboardPageState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _DashboardScreenState extends State<DashboardScreen> {
   double _balance = 0;
 
   @override
