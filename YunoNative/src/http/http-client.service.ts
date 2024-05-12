@@ -1,9 +1,9 @@
 import axios, { AxiosError, AxiosRequestConfig, Method } from "axios";
-import { IBaseApiError, IBaseApiResponse, RecordType } from "../types";
+import { IBaseApiError, IBaseApiResponse, ObjectType } from "../types";
 
 
 /** Http post method */
-export async function post<TResponse extends RecordType, TBody extends RecordType>({
+export async function post<TResponse extends ObjectType, TBody extends ObjectType>({
 	path,
 	payload,
 	options,
@@ -17,7 +17,7 @@ export async function post<TResponse extends RecordType, TBody extends RecordTyp
 }
 
 /** Http get method */
-export async function get<TResponse extends RecordType>({ path, options }: {
+export async function get<TResponse extends ObjectType>({ path, options }: {
 	path: string;
 	options?: AxiosRequestConfig;
 }) {
@@ -26,7 +26,7 @@ export async function get<TResponse extends RecordType>({ path, options }: {
 }
 
 /** Http patch method */
-export async function patch<TResponse extends RecordType, TBody extends RecordType = any>({
+export async function patch<TResponse extends ObjectType, TBody extends ObjectType = any>({
 	path,
 	payload,
 	options,
@@ -49,7 +49,7 @@ export async function delet({ path, options }: {
 }
 
 /** Http for all methods. By passes axios http interceptor by choice */
-export async function sendHttpRequest<TResponse extends RecordType, TBody extends RecordType = any>(
+export async function sendHttpRequest<TResponse extends ObjectType, TBody extends ObjectType = any>(
 	options: Omit<AxiosRequestConfig<TBody>, 'baseURL'> & {
 		/**
 		 * Set `true` to use defined axios interceptor
@@ -98,7 +98,7 @@ function getHttpClient() {
 			if (error.response && (error.response?.status > 399 && error.response?.status < 600)) {
 				errorObject = error?.response?.data?.error;
 			} else {
-				const newError = (error as RecordType).error || error as AxiosError;
+				const newError = (error as ObjectType).error || error as AxiosError;
 				const errorResponse = newError?.response! as any;
 
 				errorObject = {

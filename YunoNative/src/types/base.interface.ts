@@ -4,13 +4,13 @@ export interface IBaseId {
 	id: string;
 }
 
-export interface IEnvironmentVariable extends RecordType {
+export interface IEnvironmentVariable extends ObjectType {
 	API_URL: string;
 }
 
-export type RecordType = Record<string, any>;
+export type ObjectType = Record<string, any>;
 
-export interface IBaseApiResponse<TEntity extends RecordType = any> {
+export interface IBaseApiResponse<TEntity extends ObjectType = any> {
 	message: string;
 	data: TEntity;
 }
